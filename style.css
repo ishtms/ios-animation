@@ -1,0 +1,341 @@
+/*Stting defaults*/
+
+html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: #e9c9c9;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 900px;
+}
+.device{
+    height: 739px;
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.45);
+    backface-visibility: hidden;
+    border-radius: 20px;
+    transition: all 0.5s cubic-bezier(0.71,-0.34,0.34,1.35)
+}
+.device.single{
+    width: 547px;
+}
+.device.macbook, .device.both{
+    width: 980px;
+}
+p{
+    color: #272121;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    font-weight: 200;
+    color: #363333;
+}
+p a{
+    color: #272121
+}
+
+.iphone{
+    position: absolute;
+    width: 364px;
+    height: 737px;
+    background: white;
+    border-radius: 55px;
+    box-shadow: 0 0 0 23px #272121 inset;
+    display: inline-block;
+    transition: all .6s .2s;
+    left: 80px;
+    bottom: 0;
+    z-index: 100;
+    backface-visibility: hidden;
+}
+.macbook .iphone{
+    left: 0;
+    width: 980px;
+    height: 70px;
+    border-radius: 20px;
+    box-shadow : 0 0 0 16px #272121 inset;
+}
+/*Will add these classes later using javascritp*/
+.iphone:before, .iphone:after{
+    content: '';
+    display: block;
+    position: absolute;
+    transform: translateX(-50%)
+}
+.iphone:before{
+    top: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    width: 180px;
+    height: 48px;
+    background: #272121;
+    border-radius: 18px;
+    transform: translateX(-50%);
+    transition: height .3s .2s;
+}
+.macbook .iphone:before{
+    height: 40px;
+}
+
+.iphone:after{
+    bottom: -6px;
+    width: 38px;
+    height: 9px;
+    background: white;
+    border-radius: 100px;
+    transition: transform .3s .13s;
+    transform: translateY(0) translateX(-50%);
+    left: 50%;
+}
+.macbook .iphone:after{
+    transform: translateY(4px) translateX(-50%)
+}
+.iphone-back{
+    background: #272121;
+    left: auto;
+    right: 80px;
+    z-index: 80;;
+}
+.single .iphone-back{
+    transition: all .13s .13s;
+    opacity: 0;
+}
+.macbook .iphone-back{
+    left: auto;
+    right: 80px;
+    width: 820px;
+    height: 600px;
+}
+
+.iphone-back:before{
+    display: none;
+}
+.camera{
+    width: 27px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 38px;
+    left: 34px;
+    transition: all 0.6s 0.2s cubic-bezier(0.71, -0.34,0.34,1.35);
+}
+.macbook .camera{
+    width: 16px;
+    height: 16px;
+    transform: rotateZ(-90deg) translate(15px, -10px);
+    transform-origin: center;
+}
+
+.camera:before, .camera:after{
+    content : '';
+    display : block;
+    width: 20px;
+    height: 30px;
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+    top: 40px;
+    left: 2px;
+    transition: all 0.6s 0.2s cubic-bezier(0.71,-0.34,0.34,1.35);
+}
+.macbook .camera:before, .macbook .camera:after{
+    transform: translate(-2px,-10px);
+    width: 16px;
+    height: 16px;
+}
+.camera:after{
+    width: 22px;
+    height: 22px;
+    top: 77px;
+    left: 0;
+}
+
+.macbook .camera:after{
+    transform: translate(0,-18px);
+    width: 16px;
+    height: 16px;
+}
+.button-right{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 168px;
+    right: -2px;
+    width: 11px;
+    height: 89px;
+    border-radius: 50px;
+    z-index: -1;
+    background: #272121;
+    opacity: 1;
+    transition: all .2s
+}
+.macbook .button-right{
+    right: 0;
+    opacity: 0;
+}
+.iphone-back .button-right{
+    right: auto;
+     left: -2px;;
+}
+
+.macbook .iphone-back .button-right{
+    left: 0
+}
+
+.button-left{
+    position: absolute;
+    top: 100px;
+    left: -2px;
+    width: 3px;
+    height: 20px;
+    border-radius: 90px;
+    z-index: -1;
+    background: #272121;
+    opacity: 1;
+    transition: all .2s;
+}
+.macbook .button-left{
+    left: 0;
+    opacity: 0;
+}
+.iphone-back .button-left{
+    right: -2px;
+    left: auto;
+}
+
+.macbook .iphone-back .button-left{
+    right: 2px;
+}
+.button-left:before, .button-left:after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 11px;
+    height: 57px;
+    background: #272121;
+    border-radius: 50px;
+}
+.iphone-back .button-left:before, .iphone-back .buton-left:after{
+    right: -2px;
+    left: auto;
+}
+.macbook .iphone-back .button-left:before, .macbook .iphone-back .button-left:after{
+    right: 0;
+}
+.button-left:before{
+    top: 50px;
+}
+.button-left:after{
+    top: 118px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
